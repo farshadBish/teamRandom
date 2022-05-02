@@ -230,12 +230,11 @@ function addteam(){
         }
     })
 }
-addteam()
+addteam();
 function removing(){
-    let btnNode = document.querySelector(".remove");
+    let btnNode = document.querySelector(".reset");
     let olNode = document.querySelector(".nameContainer ol");
     btnNode.addEventListener("click",function(){
-        alert("removed");
         olNode.innerText = "";
     })
 }
