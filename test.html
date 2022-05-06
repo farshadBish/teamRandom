@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="color-scheme" content="dark light"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200&display=swap" rel="stylesheet">
@@ -15,10 +16,6 @@
         font-family: 'Josefin Sans', sans-serif;
         margin: 0;
         text-align: center;
-    }
-    header{
-        margin: 0 auto;
-        max-width: 12000px;
     }
     .main{
         display: flex;
@@ -194,9 +191,11 @@
     let inputNode = document.querySelector(".nameInputs input");
     let olNode = document.querySelector(".nameContainer ol");
     btnNode.addEventListener("click",function(){
+        if (inputNode.value!== ""){
         let newLi = document.createElement("li");
         newLi.innerText = inputNode.value;
         olNode.appendChild(newLi);
+        }
     })
 }
 addName()
@@ -244,8 +243,13 @@ addteam();
 function removing(){
     let btnNode = document.querySelector(".reset");
     let olNode = document.querySelector(".nameContainer ol");
+    let teamNode = document.querySelectorAll(".teams");
     btnNode.addEventListener("click",function(){
         olNode.innerText = "";
+        for (let i = 0; i < teamNode.length; i++) {
+            const team = teamNode[i];
+            team.style.display = "none";
+        }
     })
 }
 removing();
